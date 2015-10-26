@@ -6,5 +6,23 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "kiicloud-plugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/KiiCorp/monaca-plugin-dev",
+            "subdir": ".",
+            "ref": "monaca"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "android.support.v4": {
+        "source": {
+            "type": "registry",
+            "id": "android.support.v4"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

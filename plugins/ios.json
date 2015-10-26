@@ -4,10 +4,24 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"KiiPush\"><param name=\"ios-package\" value=\"KiiPush\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.kii.cordova.sample"
+        },
+        "kiicloud-plugin": {
             "PACKAGE_NAME": "com.kii.cordova.sample"
         }
     },
