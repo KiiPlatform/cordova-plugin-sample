@@ -36,14 +36,55 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+
+        <div style="margin-top:100px">
+            <h1>Kii Cloud</h1>
+            <div id='login_table'>
+                <table width="300px" style="margin-left: 10px">
+                    <tr>
+                        <td valign="top">
+                            <label for="Email">Email *</label>
+                        </td>
+                        <td valign="top">
+                        <input type="text" id="email" name="email" maxlength="50" size="30">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <label for="password">Password *</label>
+                        </td>
+                        <td valign="top">
+                            <input type="password" id="password" name="password" maxlength="50" size="30">
+                        </td>
+                    </tr>
+                    <tr>
+                       <td style="text-align:center">
+                          <button id="loginBtn">Login</button>
+                       </td>
+                       <td style="text-align:center">
+                          <button id="signupBtn">Signup</button>
+                       </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id='loggedin_table' style='display: none'>
+              <table width="300px" style="margin-left: 10px">
+                  <tr>
+                    <td style="text-align:center">
+                       <button id="logoutBtn">Logout</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">
+                       <button id="pushRegisterBtn">Register Push</button>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+        </div>
     </body>
 </html>
