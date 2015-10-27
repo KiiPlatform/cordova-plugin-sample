@@ -16,8 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var APP_ID = "3c9f1460";
- var APP_KEY = "4f928656a6ed37903644eb133245343e";
+ var APP_ID = "APP_ID";//replace with appropriate value
+ var APP_KEY = "APP_KEY";//replace with appropriate value
  var kii;
 
  var onLogin = function (){
@@ -28,19 +28,34 @@
           // hide login table
           document.getElementById("login_table").setAttribute('style','display:none;');
           document.getElementById("loggedin_table").setAttribute('style','display:initial;');
+          pushRegister();
        },
        failure: function (theUser, errorString) {
          alert("Error authenticating: " + errorString);
        }
    });
-
  };
 
  var onSignup = function (){
+   var email = document.getElementById("email").value;
+   var password = document.getElementById("password").value;
+   var user = kii.KiiUser.userWithEmailAddress(email, password);
+   user.register({
+      success: function(theAuthenticatedUser) {
+        // hide login table
+        document.getElementById("login_table").setAttribute('style','display:none;');
+        document.getElementById("loggedin_table").setAttribute('style','display:initial;');
+        pushRegister();
+      },
+      failure: function(theUser, anErrorString) {
+        alert("Error authenticating: " + anErrorString);
+      }
+  });
 
  };
 
- var onPushRegister = function (){
+ var pushRegister = function (){
+
     window.kiiPush.register(kii, {
        received: "pushReceived",
        success: function (token) {
@@ -50,7 +65,6 @@
            alert('error ' + msg);
        }
     });
-
  };
 
  var onLogout = function (){
@@ -58,7 +72,6 @@
    // hide login table
    document.getElementById("login_table").setAttribute('style','display:initial;');
    document.getElementById("loggedin_table").setAttribute('style','display:none;');
-
  };
 
  var app = {
@@ -85,12 +98,13 @@
 
         if(id === 'deviceready') {
           document.getElementById("loginBtn").onclick = onLogin;
-          document.getElementById("pushRegisterBtn").onclick = onPushRegister;
           document.getElementById("logoutBtn").onclick = onLogout;
+          document.getElementById("signupBtn").onclick = onSignup;
           kii = window.kii.create();
           kii.Kii.initializeWithSite(APP_ID, APP_KEY, kii.KiiSite.JP);
 
-          window.kiiPush.initAndroid("539283181603", "pushReceived", {
+          // replace sender_id with appropriate value
+          window.kiiPush.initAndroid("sender_id", "pushReceived", {
               user: {
                   ledColor: "#FFFF00FF",
                   notificatonText: "user"
@@ -113,7 +127,7 @@
  };
 
  function pushReceived(args) {
-    alert('push received');
+    alert('push received:'+JSON.stringify(args));
  }
 
  app.initialize();
