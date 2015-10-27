@@ -12,18 +12,17 @@ $ git clone https://github.com/KiiPlatform/cordova-plugin-sample
 
 ### Update kiicloud-plugin
 
-1. Get kiicloud-plugin from Github [Repository]()
+```
+$ cordova plugin update
+```
 
-  ```
-  $
-  ```
-
-2. Update Kii Cloud Javascript SDK in the kiicloud-plugin.
+Since this plugin uses Kii Cloud Javascript, you may need to update this library by the following 2 steps:
+1.  Update Kii Cloud Javascript SDK in the kiicloud-plugin.
 
   - Download the latest Kii Cloud Javascript SDK from [Kii Developer Portal](https://developer.kii.com/v2/downloads)
   - Replace the file `www/kiisdk.js` file under the kiicloud-plugin root folder with the latest Kii Cloud Javascript SDK. Make sure the file name is `kiisdk.js`
 
-3. Replace kiicloud-plugin folder in sample project downloaded in the [section](#get-source-code). The source code folder of kiicloud-plugin is `plugins/kiicloud-plugin`
+2. Replace kiicloud-plugin folder in sample project downloaded in the [section](#get-source-code). The source code folder of kiicloud-plugin is `plugins/kiicloud-plugin`
 
 ### Initialize kiicloud-plugin
 
