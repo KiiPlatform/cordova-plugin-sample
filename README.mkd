@@ -1,0 +1,61 @@
+A Cordova sample project using Kii Cloud Cordova plugin.
+
+## Usage
+
+### Get source code
+
+Download [zip](https://github.com/KiiPlatform/cordova-plugin-sample/archive/master.zip) and unzip.
+
+### Import Kii Cloud plugin
+
+Go to the root folder of this sample code, import kiicloud-plugin plugin by the following script.
+
+```
+$ cordova plugin add https://github.com/KiiPlatform/kii-cordova-plugin
+```
+
+**Note**: It requires Cordova CLI already setted up in your computer. For the details, please refer to [Cordova Guide](https://cordova.apache.org/docs/en/5.1.1/guide/cli/index.html).
+
+### Initialize kiicloud-plugin
+- Go to https://developer.kii.com and create your app.
+
+- Replace `APP_ID`, `APP_KEY`, and `KII_SITE` with the values of your app.
+
+`index.js` file located under `www/js` folder
+```js
+// replace APP_ID, APP_KEY, and KII_SITE with appropriate values
+kii.Kii.initializeWithSite(APP_ID, APP_KEY, KII_SITE);
+```
+For more details, please refer to the [guide](http://docs.kii.com/en/guides/javascript/quickstart/).
+
+### Setup push for Android
+
+- Replace `sender_id` with appropriate value (Project ID can be obtained in Google Developer Console).
+
+`index.js` file located under `www/js` folder.
+```js
+window.kiiPush.initAndroid("sender_id", "pushReceived", {
+...
+```
+You need to configure GCM on Kii Cloud.
+About the details of setting GCM on Kii Cloud, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+
+### Setup push for iOS
+- Build for iOS platform to generate Xcode project.
+
+```shell
+$ cordova build ios
+```
+
+ When done, `CordovaSample.xcodeproj` will be located under `platforms/ios`
+ 
+- Open `CordovaSample.xcodeproj`, and setup the production certificate, bundle identifier, code sign and distribution provisioning file.
+- Setup iOS push notification in Developer Portal on Kii Cloud.
+About the details, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-ios/).
+
+### Send push notification
+
+- After successfully finished the steps above, launch the app and login/signup with a kii user.
+- Send push notification to device with Direct Push on Kii Cloud via developer console.
+
+For the details, please refer to [Kii Cloud iOS SDK Guide](http://documentation.kii.com/en/guides/ios/managing-push-notification/direct-push/) or [Kii Cloud Android SDK Guide](http://documentation.kii.com/en/guides/android/managing-push-notification/direct-push/)
