@@ -45,9 +45,9 @@ About the details of setting up GCM on Kii Cloud, please refer to [guide](http:/
   ```
   $ cordova build ios
   ```
-- Open `CordovaSample.xcodeproj`, and setup certificate, bundle identifier, code sign and provisioning file.
+- Open `CordovaSample.xcodeproj`, and setup with production certificate, bundle identifier, code sign and distribution provisioning file.
 - Setup iOS push notification in Developer Portal on Kii Cloud.
-About the details, please refre to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-ios/).
+About the details, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-ios/).
 
 ### Send push notification
 
