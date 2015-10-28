@@ -3,45 +3,34 @@ A Cordova sample project using Kii Cloud Cordova plugin.
 ## Usage
 
 ### Get source code
+TODO: write
 
-Get the source code from Github
-
-```
-$ git clone https://github.com/KiiPlatform/cordova-plugin-sample
-```
-
-### Update kiicloud-plugin
-
-```
-$ cordova plugin update
-```
-
-Since this plugin uses Kii Cloud Javascript, you may need to update this library by the following 2 steps:
-1.  Update Kii Cloud Javascript SDK in the kiicloud-plugin.
-
-  - Download the latest Kii Cloud Javascript SDK from [Kii Developer Portal](https://developer.kii.com/v2/downloads)
-  - Replace the file `www/kiisdk.js` file under the kiicloud-plugin root folder with the latest Kii Cloud Javascript SDK. Make sure the file name is `kiisdk.js`
-
-2. Replace kiicloud-plugin folder in sample project downloaded in the [section](#get-source-code). The source code folder of kiicloud-plugin is `plugins/kiicloud-plugin`
+### Import Kii Cloud Plugin
+TODO: write
 
 ### Initialize kiicloud-plugin
+- Go to https://developer.kii.com and create app your product.
 
 - Change `APP_ID`, `APP_KEY`, and `KII_SITE` with appropriate values in the `index.js` file located under `www/js` folder
-
-**Note**: If you don't know how to create an app from Kii Cloud, please refer the [Guild](http://docs.kii.com/en/guides/javascript/quickstart/).
-
 
 ```
 // replace APP_ID, APP_KEY, and KII_SITE with appropriate values
 kii.Kii.initializeWithSite(APP_ID, APP_KEY, KII_SITE);
 
 ```
+For more details, please refer the [guide](http://docs.kii.com/en/guides/javascript/quickstart/).
 
-- change `sender_id` with appropriate value in the `index.js` file located under `www/js` folder.
 
-**Note**: To leverage GCM with Kii Cloud, please refer the [Guild](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+### Setup push for Android
+
+- Replace `sender_id` with appropriate value (Project ID can be obtained in Google Developer Console) in the `index.js` file located under `www/js` folder.
 
 ```
 window.kiiPush.initAndroid("sender_id", "pushReceived", {
-
+...
 ```
+
+About the details of setting up GCM on Kii Cloud, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+
+### Setup push for iOS
+TODO: write.
