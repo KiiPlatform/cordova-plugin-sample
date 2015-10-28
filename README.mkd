@@ -6,7 +6,7 @@ A Cordova sample project using Kii Cloud Cordova plugin.
 
 Unzip the downloaded sample code by clicking this [link](https://github.com/KiiPlatform/cordova-plugin-sample/archive/master.zip).
 
-### Import Kii Cloud Plugin
+### Import Kii Cloud plugin
 
 **Note**: It requires Cordova CLI already setted up in your computer. For the details, please refer to [Cordova Guide](https://cordova.apache.org/docs/en/5.1.1/guide/cli/index.html).
 
@@ -17,7 +17,7 @@ $ cordova plugin add https://github.com/KiiPlatform/kii-cordova-plugin
 ```
 
 ### Initialize kiicloud-plugin
-- Go to https://developer.kii.com and create app your product.
+- Go to https://developer.kii.com and create your app.
 
 - Change `APP_ID`, `APP_KEY`, and `KII_SITE` with appropriate values in the `index.js` file located under `www/js` folder
 
@@ -41,6 +41,15 @@ window.kiiPush.initAndroid("sender_id", "pushReceived", {
 About the details of setting up GCM on Kii Cloud, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
 
 ### Setup push for iOS
-
-You should setup iOS push notification in Developer Portal on Kii Cloud. 
+- Build for iOS platform to generate Xcode project. If successfully, the generated `CordovaSample.xcodeproj` will be located under `platforms/ios`
+  ```
+  $ cordova build ios
+  ```
+- Open `CordovaSample.xcodeproj`, and setup certificate, bundle identifier, code sign and provisioning file.
+- Setup iOS push notification in Developer Portal on Kii Cloud.
 About the details, please refre to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-ios/).
+
+### Send push notification
+
+- After successfully setted up by the above steps, launch the app and login/signup with a kii user.
+- Send push notification to device with Direct Push on Kii Cloud. For the details, please refer to [Kii Cloud iOS SDK Guide](http://documentation.kii.com/en/guides/ios/managing-push-notification/direct-push/) or [Kii Cloud Android SDK Guide](http://documentation.kii.com/en/guides/android/managing-push-notification/direct-push/)
