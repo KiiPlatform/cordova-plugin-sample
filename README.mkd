@@ -35,7 +35,7 @@ kii.Kii.initializeWithSite(APP_ID, APP_KEY, KII_SITE);
 ```
 For more details, please refer to the [guide](http://docs.kii.com/en/guides/javascript/quickstart/).
 
-### Setup push for Android
+### Setup push for Android (GCM)
 
 - Replace `sender_id` with appropriate value (Project ID can be obtained in Google Developer Console).
 
@@ -44,8 +44,26 @@ For more details, please refer to the [guide](http://docs.kii.com/en/guides/java
 window.kiiPush.initAndroid("sender_id", "pushReceived", {
 ...
 ```
+
 You need to configure GCM on Kii Cloud.
 About the details of setting GCM on Kii Cloud, please refer to [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+
+### Setup push for Android (FCM)
+- Replace `sender_id` with appropriate value.
+  - Go to your FCM project and choose 'Manage' from Mobile App dropdown menu.
+  - Choose 'Cloud Messaging' tab. copy 'Sender ID' value to your clipboard.
+  - Edit  `index.js` file located under `www/js` folder.
+
+```js
+window.kiiPush.initAndroid("sender_id", "pushReceived", {
+...
+```
+
+In FCM console, you can see 'Server key' in same screen.
+You need to save this Key in your Kii Cloud App Push Settings.
+[guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+
+(Guides/ Console uses 'GCM' as label but putting FCM Key works fine.)
 
 ### Setup push for iOS
 - Build for iOS platform to generate Xcode project.
