@@ -63,6 +63,63 @@ In FCM console, you can see 'Server key' in same screen.
 You need to save this Key in your Kii Cloud App Push Settings.
 [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
 
+3rd argument of `initAndroid` is options dictionary.
+
+```json
+{
+  "app" : {
+    // Options dictionary for "Push to app".
+  },
+  "user" : {
+    // Options dictionary for "Push to user".
+  },
+  "direct" : {
+    // Options dictionary for direct push.
+  }
+}
+```
+
+Options dictionary json schema:
+
+```json
+{
+  "title" : "Options dictionary",
+  "type" : "object",
+  "properties" : {
+      "showInNotificationArea" : {
+        "description" : "Indicate whether to show message in notification area.",
+        "type" : "boolean",
+        "default" : false
+      },
+      "useSound" : {
+        "description" : "Indicate whether to ring sound when recieved push notification.",
+        "type" : "boolean",
+        "default" : false
+      },
+      "ledColor" : {
+        "description" : "Specify color of LED to be shine when received push notification.",
+        "type" : "string",
+        "default" : ""
+      },
+      "vibrationMilliseconds" : {
+        "description" : "Specify duration of vibration in milliseconds.",
+        "type" : "integer",
+        "default" : 0
+      },
+      "notificationTitle" : {
+        "description" : "Specify notification title",
+        "type" : "string",
+        "default" : ""
+      },
+      "notificationBody" : {
+        "description" : "Specify notification body",
+        "type" : "string",
+        "default": ""
+      }
+  }
+}
+```
+
 (Guides/ Console uses 'GCM' as label but putting FCM Key works fine.)
 
 ### Setup push for iOS
