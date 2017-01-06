@@ -62,10 +62,11 @@ window.kiiPush.initAndroid("sender_id", "pushReceived", {
 In FCM console, you can see 'Server key' in same screen.
 You need to save this Key in your Kii Cloud App Push Settings.
 [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
+(Guides/ Console uses 'GCM' as label but putting FCM Key works fine.)
 
 3rd argument of `initAndroid` is options dictionary.
 
-```json
+```
 {
   "app" : {
     // Options dictionary for "Push to app".
@@ -120,7 +121,39 @@ Options dictionary json schema:
 }
 ```
 
-(Guides/ Console uses 'GCM' as label but putting FCM Key works fine.)
+Actual code will be like this.
+```javascript
+var o = {
+  showInNotificationArea: true,
+  useSound: true,
+  ledColor: "#ff0000ff", // BLUE in ARGB
+  vibrationMilliseconds: 5000,
+  notificatonTitle: "You have new message!",
+  notificationBody" "Push notification arrived"
+};
+
+var options = {
+  app: o,
+  user: o,
+  direct: o
+}
+window.kiiPush.initAndroid("sender_id", "pushReceived", options);
+```
+
+For `notificationTitle` and `notificationBody` you can use JSON Path to reference recived push message contents.
+In the example bellow, `title` and `body` field in recieved push message is used as notificatonTitle and notificationBody
+respectively.
+
+```javascript
+var o = {
+  showInNotificationArea: true,
+  useSound: true,
+  ledColor: "#ff0000ff", // BLUE in ARGB
+  vibrationMilliseconds: 5000,
+  notificatonTitle: "$.title",
+  notificationBody" "$.body"
+};
+```
 
 ### Setup push for iOS
 - Build for iOS platform to generate Xcode project.
