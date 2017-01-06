@@ -129,14 +129,15 @@ var o = {
   ledColor: "#ff0000ff", // BLUE in ARGB
   vibrationMilliseconds: 5000,
   notificatonTitle: "You have new message!",
-  notificationBody" "Push notification arrived"
+  notificationBody: "Push notification arrived"
 };
 
 var options = {
   app: o,
   user: o,
   direct: o
-}
+};
+
 window.kiiPush.initAndroid("sender_id", "pushReceived", options);
 ```
 
@@ -151,7 +152,7 @@ var o = {
   ledColor: "#ff0000ff", // BLUE in ARGB
   vibrationMilliseconds: 5000,
   notificatonTitle: "$.title",
-  notificationBody" "$.body"
+  notificationBody: "$.body"
 };
 ```
 
