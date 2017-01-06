@@ -142,7 +142,7 @@ window.kiiPush.initAndroid("sender_id", "pushReceived", options);
 ```
 
 For `notificationTitle` and `notificationBody` you can use JSON Path to reference recived push message contents.
-In the example bellow, `title` and `body` field in recieved push message is used as notificatonTitle and notificationBody
+In the example bellow, `title` and `body` field in recieved push message is used as `notificatonTitle` and `notificationBody`
 respectively.
 
 ```javascript
