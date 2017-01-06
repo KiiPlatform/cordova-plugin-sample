@@ -98,7 +98,7 @@ Options dictionary json schema:
         "default" : false
       },
       "ledColor" : {
-        "description" : "Specify color of LED to be shine when received push notification.",
+        "description" : "Specify color of LED to be shine when received push notification. ARGB value \"#AARRGGBB\" where AA, RR, GG, BB is hexa decimal. ex) \"#ff0000ff\" for BLUE",
         "type" : "string",
         "default" : ""
       },
