@@ -62,8 +62,99 @@ window.kiiPush.initAndroid("sender_id", "pushReceived", {
 In FCM console, you can see 'Server key' in same screen.
 You need to save this Key in your Kii Cloud App Push Settings.
 [guide](http://documentation.kii.com/en/samples/push-notifications/push-notifications-android/).
-
 (Guides/ Console uses 'GCM' as label but putting FCM Key works fine.)
+
+3rd argument of `initAndroid` is options dictionary.
+
+```
+{
+  "app" : {
+    // Options dictionary for "Push to app".
+  },
+  "user" : {
+    // Options dictionary for "Push to user".
+  },
+  "direct" : {
+    // Options dictionary for direct push.
+  }
+}
+```
+
+Options dictionary json schema:
+
+```json
+{
+  "title" : "Options dictionary",
+  "type" : "object",
+  "properties" : {
+      "showInNotificationArea" : {
+        "description" : "Indicate whether to show message in notification area.",
+        "type" : "boolean",
+        "default" : false
+      },
+      "useSound" : {
+        "description" : "Indicate whether to ring sound when recieved push notification.",
+        "type" : "boolean",
+        "default" : false
+      },
+      "ledColor" : {
+        "description" : "Specify color of LED to be shine when received push notification. ARGB value \"#AARRGGBB\" where AA, RR, GG, BB is hexa decimal. ex) \"#ff0000ff\" for BLUE",
+        "type" : "string",
+        "default" : ""
+      },
+      "vibrationMilliseconds" : {
+        "description" : "Specify duration of vibration in milliseconds.",
+        "type" : "integer",
+        "default" : 0
+      },
+      "notificationTitle" : {
+        "description" : "Specify notification title",
+        "type" : "string",
+        "default" : ""
+      },
+      "notificationBody" : {
+        "description" : "Specify notification body",
+        "type" : "string",
+        "default": ""
+      }
+  }
+}
+```
+
+Actual code will be like this.
+```javascript
+var o = {
+  showInNotificationArea: true,
+  useSound: true,
+  ledColor: "#ff0000ff", // BLUE in ARGB
+  vibrationMilliseconds: 5000,
+  notificatonTitle: "You have new message!",
+  notificationBody: "Push notification arrived"
+};
+
+var options = {
+  app: o,
+  user: o,
+  direct: o
+};
+
+window.kiiPush.initAndroid("sender_id", "pushReceived", options);
+```
+
+For `notificationTitle` and `notificationBody` you can use JSON Path to reference recived push message contents.
+In the example bellow, `title` and `body` field in recieved push message is used as `notificatonTitle` and `notificationBody`
+respectively.
+
+```javascript
+var o = {
+  showInNotificationArea: true,
+  useSound: true,
+  ledColor: "#ff0000ff", // BLUE in ARGB
+  vibrationMilliseconds: 5000,
+  notificatonTitle: "$.title",
+  notificationBody: "$.body"
+};
+```
 
 ### Setup push for iOS
 - Build for iOS platform to generate Xcode project.
